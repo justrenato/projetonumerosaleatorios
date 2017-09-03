@@ -2,8 +2,8 @@
 #include "lcrandom.h"
 #define maxlin 100 
 #define maxcol 100
-	int aux,cont[100],maior;
-	char hist[maxlin][maxcol];
+int aux,cont[100],maior;
+char hist[maxlin][maxcol];
 
 
 void contagemValores(){
@@ -22,33 +22,29 @@ void contagemValores(){
 
 	for (int i = 0; i < 100; ++i){ //substitui no vetor os valores aleatorios pela porcentagem de sua frequencia
 		cont[i]=(cont[i]/maior)*100;
-
+	}
+	
 	// for (int i = 0; i < 100; ++i) //imprimir vetor.
 	// {
 	// 	printf("i de %d = %d\n",i,cont[i] );
 	// }
-	}
 }
 
-void Inichistograma(){
+void InicHistograma(){
 	for (int i = 0; i < maxlin; ++i)
 	{
-		for (int j = 0; j < maxcol; ++j)
+		for (int j = 0; j < cont[i]; ++j)
 		{
 			hist[i][j]='*';
 		}
 	}
-
-
-
-
 }
 
 void imprimeHistograma(){
 
-	printf("\nCada * equivale a 2 unidades de ocorrência\n\n"); // essa parte imprime os numeros da coluna horizontal
+
 	printf("  ");
-	for (int i = 0; i < maxcol+1; ++i)
+	for (int i = 0; i < maxcol+1; ++i) // essa parte imprime os numeros da coluna horizontal
 	{
 		if (i%10==0){printf("%d",i);
 		} 
@@ -86,15 +82,12 @@ void imprimeHistograma(){
 }
 
 
-
-
-
 int main(){
 	
-	contagemValores();
-	Inichistograma();
-	imprimeHistograma();
 
+	contagemValores();
+	InicHistograma();
+	imprimeHistograma();
 
 
 
