@@ -1,20 +1,15 @@
 #include <stdio.h>
 #include "lcrandom.h"
 #define maxlin 100 
-
-int main(){
-	
+#define maxcol 100
 	int aux,cont[100],maior;
-	char hist[maxlin][50];
+	char hist[maxlin][maxcol];
 
-	for (int i=0;i<100;i++){ //tira o lixo do vetor e insere 0
-		cont[i]=0;
-	}
-	
+
+void contagemValores(){
 	for (int i=1;i<=1000000;i++){ // gera 10^6 valores aleatorios e conta a frequencia
-		aux=lcrandom()%100;
-		cont[aux]=cont[aux]+1;
-	}
+	aux=lcrandom()%100;
+	cont[aux]=cont[aux]+1;}
 
 	for (int i=0;i<100;i++){ //verifica maior valor gerado aleatoriamente
 		if (i==0){
@@ -27,27 +22,82 @@ int main(){
 
 	for (int i = 0; i < 100; ++i){ //substitui no vetor os valores aleatorios pela porcentagem de sua frequencia
 		cont[i]=(cont[i]/maior)*100;
-	}
 
 	// for (int i = 0; i < 100; ++i) //imprimir vetor.
 	// {
 	// 	printf("i de %d = %d\n",i,cont[i] );
 	// }
-
-	printf("  0  10  20   30  40  50  60  70  80  90  100\n");
-	printf("  +---+---+---+---+---+---+---+---+---+---+");
-	for (int i = 0; i < maxlin; ++i) //imprime histograma
-	{
-		if (i<10)
-		{
-			printf("\n0%d|",i);
-		} else {printf("\n%d|",i);}
-		for (int j = 0; j < 50; ++j)
-		{			
-			hist[i][j]='*';
-			printf("%c ",hist[i][j] );
-		}
-		
 	}
+}
+
+void Inichistograma(){
+	for (int i = 0; i < maxlin; ++i)
+	{
+		for (int j = 0; j < maxcol; ++j)
+		{
+			hist[i][j]='*';
+		}
+	}
+
+
+
+
+}
+
+void imprimeHistograma(){
+
+	printf("\nCada * equivale a 2 unidades de ocorrência\n\n"); // essa parte imprime os numeros da coluna horizontal
+	printf("  ");
+	for (int i = 0; i < maxcol+1; ++i)
+	{
+		if (i%10==0){printf("%d",i);
+		} 
+		if (i%10!=0 && i%9!=0){ printf(" "); // imprime 10,20,30 e quando resto de i por 10 for diferente de 0 imprime espaço
+		}
+	}	
+	printf("\n");
+
+
+
+	printf("  ");
+	for (int i = 0; i < maxcol+1; ++i) // essa parte imprime os - e + da coluna horizontal
+	{
+		if (i%10==0){printf("+");
+		} else { printf("-");}
+	}
+	printf("\n");
+
+
+	for (int i = 0; i < maxlin; ++i)
+	{
+		if (i>9){ //imprime a barra lateral
+			printf("%d|",i);
+		} else {
+			printf("0%d|",i);
+		}
+
+
+		for (int j = 0; j < maxcol; ++j) //imprime o histograma
+		{
+			printf("%c",hist[i][j]);
+		}
+		printf("\n");
+	}
+}
+
+
+
+
+
+int main(){
+	
+	contagemValores();
+	Inichistograma();
+	imprimeHistograma();
+
+
+
+
+
 	return 0;
 }
