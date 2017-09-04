@@ -21,14 +21,12 @@ void contagemValores(){
 	}
 
 	for (int i = 0; i < 100; ++i){ //substitui no vetor os valores aleatorios pela porcentagem de sua frequencia
-		cont[i]=(cont[i]/maior)*100;
+		cont[i]=(cont[i]*100)/maior;
+		//printf("i de %d = %d\n",i,cont[i] ); //imprime vetor
 	}
 	
-	// for (int i = 0; i < 100; ++i) //imprimir vetor.
-	// {
-	// 	printf("i de %d = %d\n",i,cont[i] );
-	// }
-}
+
+ }
 
 void InicHistograma(){
 	for (int i = 0; i < maxlin; ++i)
@@ -84,7 +82,7 @@ void imprimeHistograma(){
 
 int main(){
 	
-
+	lcrandom_parms(1103515245,12345,2147483648);
 	contagemValores();
 	InicHistograma();
 	imprimeHistograma();
