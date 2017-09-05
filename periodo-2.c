@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lcrandom.h"
-
+//BUGANDO
 int periodo[10000000],aux;
 
 
@@ -29,6 +29,7 @@ int calculoperiodo(){
 
 int main()
 {
+	lcrandom_parms(1103515245,12345,2147483648);
 	calculoperiodo();
 	return 0;
 }
