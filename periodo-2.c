@@ -3,7 +3,8 @@
 #include "lcrandom.h"
 //BUGANDO
 int periodo[10000000],aux;
-
+// int peri;
+// peri = * calloc (2200000000,sizeof(int));
 
 int calculoperiodo(){
 	int aux=0,sair=0,cont=0;
@@ -29,7 +30,7 @@ int calculoperiodo(){
 
 int main()
 {
-	lcrandom_parms(1103515245,12345,2147483648);
+	//lcrandom_parms(1103515245,12345,2147483648);
 	calculoperiodo();
 	return 0;
 }

@@ -28,7 +28,7 @@ void contagemValores(){
 
  }
 
-void InicHistograma(){
+void InicHistograma(){ //atribui as frequencias ao histograma
 	for (int i = 0; i < maxlin; ++i)
 	{
 		for (int j = 0; j < cont[i]; ++j)
@@ -82,7 +82,7 @@ void imprimeHistograma(){
 
 int main(){
 	
-	lcrandom_parms(1103515245,12345,2147483648);
+	lcrandom_parms(1103515245,12345,2147483648);//melhores parametros
 	contagemValores();
 	InicHistograma();
 	imprimeHistograma();
