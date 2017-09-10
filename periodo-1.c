@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "lcrandom.h"
 
-int periodo[10000000],aux;
+int periodo[10000000];
 
 
 int calculoperiodo(){
