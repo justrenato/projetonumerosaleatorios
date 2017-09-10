@@ -1,36 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lcrandom.h"
-//BUGANDO
-int periodo[10000000],aux;
-// int peri;
-// peri = * calloc (2200000000,sizeof(int));
 
-int calculoperiodo(){
-	int aux=0,sair=0,cont=0;
+unsigned char periodo[2147483648];
 
-	for (int i = 0; i < 10000000; ++i)
+
+ long int calculoperiodo(){
+	 long int aux=0,sair=0,cont=0;
+
+	for ( long int i = 0; i < 2147483648; ++i)
 	{
-		periodo[i]=0;
+		periodo[i]='0';
 	}
 
 	while (sair==0){
 		aux=lcrandom();
-		periodo[aux]++;
-		if (periodo[aux]>1)
+		
+		
+		if (periodo[aux]!='0')
 		{
 			sair=1;
-			printf("%d\n",cont);
-		} 
+			printf("ALEATORIOS GERADOS ANTES DE REPETIR: %li\n",cont);
+			printf("ultimo gerado: %li\n",aux );
+		} else { 
+			periodo[aux]='1';
+		}
+		
 		cont++;
+		
 	}
-	return(cont);
+	return(0);
 }
 
 
 int main()
 {
-	//lcrandom_parms(1103515245,12345,2147483648);
+	lcrandom_parms(1103515245,12345,2147483648);
 	calculoperiodo();
 	return 0;
 }
