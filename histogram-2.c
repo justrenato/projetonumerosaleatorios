@@ -1,3 +1,4 @@
+//Renato Ribeiro da Silva GRR20172113
 #include <stdio.h>
 #include "lcrandom.h"
 #define maxlin 100 
@@ -80,15 +81,10 @@ void imprimeHistograma(){
 }
 
 
-int main(){
-	
+int main(){	
 	lcrandom_parms(1103515245,12345,2147483648);//melhores parametros
 	contagemValores();
 	InicHistograma();
 	imprimeHistograma();
-
-
-
-
 	return 0;
 }

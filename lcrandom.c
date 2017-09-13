@@ -1,3 +1,4 @@
+//Renato Ribeiro da Silva GRR20172113
 #include <stdio.h>
 #include "lcrandom.h"
 
